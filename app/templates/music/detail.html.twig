@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la musique{% endblock %}
+
+{% block body %}
+    <h1>{{ music.name }}</h1>
+    <p>URL : {{ music.url }}</p>
+    <a href="{{ path('app_music') }}">Retour à la liste</a>
+{% endblock %}

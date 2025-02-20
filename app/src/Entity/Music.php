@@ -1,9 +1,11 @@
 <?php
 
+
 namespace App\Entity;
 
 use App\Repository\MusicRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MusicRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -15,9 +17,11 @@ class Music
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $url = null;
 
     #[ORM\Column]
