@@ -26,6 +26,12 @@ class MusicType extends AbstractType
                     'placeholder' => 'Lien de la musique',
                     ],
             ])
+            ->add('author', TextType::class, [
+                'label' => 'Entrer auteur',
+                'attr' => [
+                    'placeholder' => 'Auteur de la musique',
+                    ],
+            ])
             ->add('save', SubmitType::class)
         ;
     }
