@@ -28,8 +28,16 @@ class Category
     public function __construct()
     {
         $this->musics = new ArrayCollection();
+        $this->createAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTimeImmutable();
     }
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $createAt = null;
+    
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+    
     #[ORM\PrePersist]
     public function setTimestampsValue(): void
     {
@@ -108,4 +116,9 @@ class Category
 
         return $this;
     }
+    public function __toString(): string
+    {
+        return $this->name ?? '';
+    }
+
 }
